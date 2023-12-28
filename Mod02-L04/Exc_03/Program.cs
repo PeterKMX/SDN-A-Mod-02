@@ -25,11 +25,9 @@ namespace Exc_03
     {
       Console.WriteLine("Excercise 03: diagonal of a rectangle ");
 
-      double width = 12.2; // cm
-      double height = 20.2; // cm
-
-      width = ReadWidth();
-      height = ReadHeight();
+      // in cm
+      double width = ReadWidth();
+      double height = ReadHeight();
 
       double diagonal = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2));
       //TESTED: double diag_check = Math.Sqrt(width*width + height*height);
