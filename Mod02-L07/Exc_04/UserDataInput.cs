@@ -33,11 +33,11 @@ namespace Exc_04
       // parse
       error = !int.TryParse(tmp, out number);
 
+      string errMsg = "Too many errors on input...";
       while (error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");

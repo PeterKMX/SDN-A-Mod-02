@@ -22,7 +22,7 @@ namespace Exc_12
       if (_verbalMap.ContainsKey(i)) {
         return _verbalMap[i];  
       } else {
-        return "Unknown index";
+        return "Internal error - unknown index";
       }
     }
 

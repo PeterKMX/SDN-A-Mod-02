@@ -25,18 +25,36 @@ namespace Exc_03
     static void Main(string[] args)
     {
       Console.WriteLine("Excercise 03: Is this number positive or negative ...");
-      int aNumber = UserDataInput.GetNumberToTest();
 
-      if (aNumber == 0) {
-        Console.WriteLine($"Number {aNumber} is neither negative nor positive");
-      } else if (aNumber > 0) {
-        Console.WriteLine($"Number {aNumber} is positive");
-      } else {
-        //  number is negative
-        Console.WriteLine($"Number {aNumber} is negative");
+      while (true) {
+
+        try {
+          int aNumber = UserDataInput.GetNumberToTest();
+
+          if (aNumber == 0) {
+            Console.WriteLine($"Number {aNumber} is neither negative nor positive");
+          } else if (aNumber > 0) {
+            Console.WriteLine($"Number {aNumber} is positive");
+          } else {
+            //  number is negative
+            Console.WriteLine($"Number {aNumber} is negative");
+          }
+
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        } finally { }
       }
-      Console.WriteLine("Hit any key to exit ...");
-      ConsoleKeyInfo key = Console.ReadKey();
+
+      Console.WriteLine();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
 
   }

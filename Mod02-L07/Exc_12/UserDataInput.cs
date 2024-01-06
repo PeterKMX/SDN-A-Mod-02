@@ -11,9 +11,10 @@ namespace Exc_12
   {
     public static int GetGetWeekDayNumber()
     {
-      string commandText = "Podaj numer dnia tygodnia: ";
+      string commandText = "Podaj numer dnia tygodnia (1 - 7): ";
       return GetNumber(commandText);
     }
+
     private static int GetNumber(String commandText)
     {
       bool error = false;
@@ -33,11 +34,11 @@ namespace Exc_12
         }
       }
 
+      string errMsg = "Too many errors on input...";
       while (error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");

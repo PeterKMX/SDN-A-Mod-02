@@ -24,24 +24,33 @@ namespace Exc_11
     {
       Console.WriteLine("Excercise 11: Powiedz ocene ucznia ...");
 
+      VerbalMapper mapper = new VerbalMapper();
+      int scoreInt;
+      string scoreTxt;
+      
       while (true)
-      { 
-        int score = UserDataInput.GetPersonScore();
+      {
+        try {
+          scoreInt = UserDataInput.GetPersonScore();
+          scoreTxt = mapper.GetTextByIndex(scoreInt);
 
-        VerbalMapper mapper = new VerbalMapper(); 
-        string scoreTxt = mapper.GetTextByIndex(score);
+          Console.WriteLine($"Twoja ocena: {scoreTxt} ");
 
-        Console.WriteLine($"Twoja ocena: {scoreTxt} ");
-
-        Console.WriteLine("Try again ? (y/n)");
-        string x = Console.ReadLine();
-        if (x == "y") { continue; } else break;
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+        
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        }
       }
 
-
-
-
-
+      Console.WriteLine();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

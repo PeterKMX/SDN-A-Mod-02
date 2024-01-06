@@ -41,14 +41,32 @@ namespace Exc_05
     static void Main(string[] args)
     {
       Console.WriteLine("Excercise 05: Stanowiska polityczne");
-      int age = UserDataInput.GetAge(); 
 
-      AgeMapper mapper = new AgeMapper(); 
-      OutputView.DisplayResult(age, mapper);  
+
+      while (true) {
+        try {
+          int age = UserDataInput.GetAge();
+
+          AgeMapper mapper = new AgeMapper();
+          OutputView.DisplayResult(age, mapper);
+
+          Console.WriteLine();
+
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        } finally { }
+      }
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
-      ConsoleKeyInfo key = Console.ReadKey();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

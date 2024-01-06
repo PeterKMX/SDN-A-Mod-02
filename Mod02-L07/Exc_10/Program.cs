@@ -20,22 +20,32 @@ namespace Exc_10
       Console.WriteLine("Excercise 10: Evaluate triangle data");
 
       while (true) 
-      { 
-        List<int> abcList = UserDataInput.GetTriangleData();
-        bool isSuitable = BuildTriangle.ListIsSuitable(abcList);  
+      {
+        try {
 
-        if (isSuitable) {
-          Console.WriteLine("Building triangle is possible");
-        } else {
-          Console.WriteLine("Building triangle is not possible");
-        }
+          List<int> abcList = UserDataInput.GetTriangleData();
+          bool isSuitable = BuildTriangle.ListIsSuitable(abcList);
 
-        Console.WriteLine("Try again ? (y/n)");
-        string x = Console.ReadLine();
-        if (x == "y") { continue; } else break;
+          if (isSuitable) {
+            Console.WriteLine("Building triangle is possible");
+          } else {
+            Console.WriteLine("Building triangle is not possible");
+          }
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        } finally { }
       }
 
-      // exit
+      Console.WriteLine();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

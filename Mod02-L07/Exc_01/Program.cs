@@ -35,8 +35,8 @@ namespace Exc_01
       }
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
-      ConsoleKeyInfo key = Console.ReadKey();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

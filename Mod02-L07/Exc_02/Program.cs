@@ -22,21 +22,30 @@ namespace Exc_02
     {
       Console.WriteLine("Excercise 02: even or odd number");
 
-      while (true) 
-      { 
-        int number = UserDataInput.GetNumberToTest();
+      while (true) {
+        try {
+          int number = UserDataInput.GetNumberToTest();
 
-        if (number % 2 == 0) {
-          Console.WriteLine($"Number {number} is even");
-        } else {
-          Console.WriteLine($"Number {number} is odd");
-        }
+          if (number % 2 == 0) {
+            Console.WriteLine($"Number {number} is even");
+          } else {
+            Console.WriteLine($"Number {number} is odd");
+          }
 
-        Console.WriteLine("Try again ? (y/n)"); 
-        string x = Console.ReadLine();
-        if (x == "y") { continue; }
-        else break;
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        } finally { }
       }
+
+      Console.WriteLine();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

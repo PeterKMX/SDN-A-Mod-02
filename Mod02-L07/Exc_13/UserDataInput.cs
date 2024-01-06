@@ -43,18 +43,13 @@ namespace Exc_13
       string tmp = Console.ReadLine();
       // parse
       error = !int.TryParse(tmp, out number);
-      //if (!error) {
-      //  // extra limitation
-      //  if (number < 1 || number > 7) {
-      //    error = true;
-      //  }
-      //}
+      // no limitation
 
+      string errMsg = "Too many errors on input...";
       while (error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
@@ -62,12 +57,7 @@ namespace Exc_13
 
         // parse
         error = !int.TryParse(tmp, out number);
-        //if (!error) {
-        //  // extra limitation
-        //  if (number < 1 || number > 7) {
-        //    error = true;
-        //  }
-        //}
+        // no limitation
       }
 
       return number; // 0.0 means not provided 
@@ -92,11 +82,11 @@ namespace Exc_13
         }
       }
 
+      string errMsg = "Too many errors on input...";
       while (error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");

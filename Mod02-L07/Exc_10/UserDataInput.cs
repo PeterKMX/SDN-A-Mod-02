@@ -26,13 +26,13 @@ namespace Exc_10
       Console.WriteLine(commandText);
       //
       string tmp = Console.ReadLine();
-      ParserResult parserResult = SplitAndConvert(tmp); 
+      ParserResult parserResult = SplitAndConvert(tmp);
 
+      string errMsg = "Too many errors on input...";
       while (parserResult.Error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");

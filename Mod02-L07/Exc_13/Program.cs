@@ -24,26 +24,34 @@ namespace Exc_13
     static void Main(string[] args)
     {
       Console.WriteLine("Excercise 13: Simple calculator");
+
+      Calculator c = new Calculator();
+      double d; 
+
       while (true) 
       {
-        int arg1 = UserDataInput.Get1stNumber();
-        int arg2 = UserDataInput.Get2ndNumber();
-        int oper = UserDataInput.GetOperation();
-
         try { 
-            Calculator c = new Calculator();
-            double d = c.Calculate(arg1, arg2, oper); 
+          int arg1 = UserDataInput.Get1stNumber();
+          int arg2 = UserDataInput.Get2ndNumber();
+          int oper = UserDataInput.GetOperation();
 
-            Console.WriteLine($"Rezultat: {d:###.###}");
+          d = c.Calculate(arg1, arg2, oper); 
+          Console.WriteLine($"Rezultat: {d:###.###}");
+
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+
         } catch (Exception ex) { 
-            Console.WriteLine("An error occured:\r\n" + ex.ToString()); 
+          Console.WriteLine("An error occured:\r\n" + ex.ToString());
+          Console.WriteLine("Stopping application");
+          break;
         } finally { }
-
-        Console.WriteLine("Try again ? (y/n)");
-        string x = Console.ReadLine();
-        if (x == "y") { continue; } else break;
       }
 
+      Console.WriteLine();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

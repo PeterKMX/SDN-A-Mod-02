@@ -43,24 +43,36 @@ namespace Exc_04
       Console.WriteLine("Excercise 04: Rok przestepny / Leap Year / Schrikkeljaar");
       
       while (true) 
-      {       
+      {
+        try {
+          // read year
+          int year = UserDataInput.GetYearToTest();
+          if (year == 0) break; 
         
-        // read 
-        int year = UserDataInput.GetYearToTest();
-        if (year == 0) break; 
-        
-        // test leap year
-        bool isLeapYear = LeapYearEvaluator.IsLeapYear(year); 
+          // test leap year
+          bool isLeapYear = LeapYearEvaluator.IsLeapYear(year);
 
-        // view
-        if (isLeapYear ) {
-          Console.WriteLine($"{year} jest rokiem przestepnym");
-        } else {
-          Console.WriteLine($"{year} nie jest rokiem przestepnym");
+          // view
+          if (isLeapYear ) {
+            Console.WriteLine($"{year} jest rokiem przestepnym");
+          } else {
+            Console.WriteLine($"{year} nie jest rokiem przestepnym");
+          }
+      
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;   
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
         }
       }
-      Console.WriteLine("Stopping application. Enter any key to close ...");
-      Console.ReadLine();
+
+      Console.WriteLine();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

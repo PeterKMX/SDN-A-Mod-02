@@ -9,7 +9,6 @@ namespace Exc_11
 {
   public class UserDataInput
   {
-
     public static int GetPersonScore() 
     {
       string commandText = "Podaj ocenę (1 ... 6):";
@@ -29,12 +28,17 @@ namespace Exc_11
 
       // parse
       error = !int.TryParse(tmp, out number);
+      if (!error) {
+        if (number < 1 || number > 6) {
+          error = true;
+        }
+      }
 
+      string errMsg = "Too many errors on input...";
       while (error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
@@ -42,7 +46,6 @@ namespace Exc_11
 
         // parse
         error = !int.TryParse(tmp, out number);
-
         if (!error) {
           if (number < 1 || number > 6) {
             error = true;

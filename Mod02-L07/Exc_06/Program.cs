@@ -36,17 +36,32 @@ namespace Exc_06
     {
       Console.WriteLine("Excercise 06: Classify person height");
 
-      // get input in cm and assign to category range
-      int heightCm = UserDataInput.GetPersonHeightInCm();
-      HeightCategory hc = RangeMapper.AssignToRange(heightCm);
 
-      // display category
-      VerbalMapper verbalMapper = new VerbalMapper();
-      OutputView.DisplayResult(hc,verbalMapper);
+      while (true) {
+        try {
+          // get input in cm and assign to category range
+          int heightCm = UserDataInput.GetPersonHeightInCm();
+          HeightCategory hc = RangeMapper.AssignToRange(heightCm);
+
+          // display category
+          VerbalMapper verbalMapper = new VerbalMapper();
+          OutputView.DisplayResult(hc,verbalMapper);
+
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        }
+
+      }
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
-      ConsoleKeyInfo key = Console.ReadKey();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }

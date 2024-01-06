@@ -44,25 +44,39 @@ namespace Exc_08
         "Excercise 08: University candiate student selection admission"
       );
 
-      // get scores
-      int mathScore = UserDataInput.GetMathScore();
-      int physicsScore = UserDataInput.GetPhysicScore();
-      int chemistryScore = UserDataInput.GetChemistryScore();
+      while (true) {
+        try {
+          // get scores
+          int mathScore = UserDataInput.GetMathScore();
+          int physicsScore = UserDataInput.GetPhysicScore();
+          int chemistryScore = UserDataInput.GetChemistryScore();
 
-      // evaluate
-      bool isAdmitted = AdmissionEvaluator.IsAdmitted(
-        mathScore, physicsScore, chemistryScore);
+          // evaluate
+          bool isAdmitted = AdmissionEvaluator.IsAdmitted(
+            mathScore, physicsScore, chemistryScore);
 
-      // display result
-      if (isAdmitted) {
-        Console.WriteLine("Kandydat dopuszczony do rekrutacji");
-      } else {
-        Console.WriteLine("Kandydat nie dopuszczony do rekrutacji");
+          // display result
+          if (isAdmitted) {
+            Console.WriteLine("Kandydat dopuszczony do rekrutacji");
+          } else {
+            Console.WriteLine("Kandydat nie dopuszczony do rekrutacji");
+          }
+
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+
+        } catch (Exception ex) {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
+          Console.WriteLine("Stopping application");
+          break;
+        }
       }
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
-      ConsoleKeyInfo key = Console.ReadKey();
+      Console.WriteLine("Press any key to exit ...");
+      string s = Console.ReadLine();
     }
   }
 }
