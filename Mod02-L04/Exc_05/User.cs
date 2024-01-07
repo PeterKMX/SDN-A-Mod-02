@@ -16,7 +16,7 @@ namespace Exc_05
     public double Weight { get; set; }  
     public char Gender { get; set; }
     //e.PESEL https://en.wikipedia.org/wiki/PESEL must be 11 digits
-    public long Pesel { get; set; }
+    public string Pesel { get; set; }
 
     public User()
     { }

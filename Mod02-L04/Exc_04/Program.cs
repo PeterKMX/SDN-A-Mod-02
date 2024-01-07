@@ -7,7 +7,8 @@
         c. 12,5
        Pamiętaj o użyciu poprawnych typów danych.
 
-      TESTED: 2023.12.27
+      TESTED: 2023.12.27 
+      TESTED: 2023.01.07 
       STATUS: OK 
 */
 

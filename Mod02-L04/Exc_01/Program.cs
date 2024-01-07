@@ -8,7 +8,8 @@
       f. Numer pracownika (np. 2509324094)
       Zadeklaruj zmienne odpowiednich typów, które mogą przetrzymywać te informacje 
 
-      TESTED: 2023.12.27
+      TESTED: 2023.12.27 
+      TESTED: 2023.01.07 
       STATUS: OK 
  
 */
@@ -29,13 +30,13 @@ namespace Exc_01
         LastName = "Kmxx",
         Age = 41,
         Gender = 'm',
-        Pesel = 12345678901,
+        Pesel = "12345678901",
         IdNumber = 345354354
       };
       Console.WriteLine("DONE");
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
+      Console.WriteLine("Press any key to exit ...");
       ConsoleKeyInfo key = Console.ReadKey();
     }
   }

@@ -2,7 +2,8 @@
    2. Napisz program, w którym stworzysz 3 zmienne z jedną literą, a następnie 
       wypiszesz je w odwrotnej kolejności niż zostały zadeklarowane.
 
-      TESTED: 2023.12.27
+      TESTED: 2023.12.27 
+      TESTED: 2023.01.07 
       STATUS: OK 
 */
 
@@ -21,7 +22,7 @@ namespace Exc_02
       Console.WriteLine(string.Format($"{c},{b},{a}"));
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
+      Console.WriteLine("Press any key to exit ...");
       ConsoleKeyInfo key = Console.ReadKey();
     }
   }

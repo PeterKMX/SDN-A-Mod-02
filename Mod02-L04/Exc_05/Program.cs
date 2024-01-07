@@ -7,7 +7,8 @@
         
         typDanych.Parse(odpowiedźOdUżytkownika).
 
-      TESTED: 2023.12.27
+      TESTED: 2023.12.27 
+      TESTED: 2023.01.07 
       STATUS: OK 
 */
 
@@ -17,24 +18,36 @@ namespace Exc_05
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Excercise 05: Asking user data");
+      Console.WriteLine("Excercise 05: Querying user data");
 
-      Console.WriteLine("User data entry form:");
+      while (true) { 
+        try {
+          Console.WriteLine("User data entry form:");
+          User user = new User();
+          user.FirstName = UserConsoleInput.GetFirstName();
+          user.LastName = UserConsoleInput.GetLastName();
+          user.Email = UserConsoleInput.GetEmail();
+          user.Age = UserConsoleInput.GetAge();
+          user.Weight = UserConsoleInput.GetWeight();
+          user.Gender = UserConsoleInput.GetGender();
+          user.Pesel = UserConsoleInput.GetPesel();
 
-      User user = new User(); 
-      user.FirstName = UserConsoleInput.GetFirstName();
-      user.LastName = UserConsoleInput.GetLastName();
-      user.Email = UserConsoleInput.GetEmail();
-      user.Age = UserConsoleInput.GetAge();
-      user.Weight = UserConsoleInput.GetWeight();
-      user.Gender = UserConsoleInput.GetGender();
-      user.Pesel = UserConsoleInput.GetPesel();
+          Console.WriteLine("User data viewing");
+          UserDataView.ShowUserData(user);
 
-      Console.WriteLine("User data viewing");
-      UserDataView.ShowUserData(user);
+          Console.WriteLine("Try again ? (y/n)");
+          string x = Console.ReadLine();
+          if (x == "y") { continue; } else break;
+
+        } catch (Exception ex) {
+          Console.WriteLine("An error occured:\r\n" + ex.ToString());
+          Console.WriteLine("Stopping application");
+          break;
+        } finally { }
+      }  
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
+      Console.WriteLine("Press any key to exit ...");
       ConsoleKeyInfo key = Console.ReadKey();
     }
   }

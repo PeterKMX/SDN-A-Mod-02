@@ -11,7 +11,8 @@
         so the input accepts now only "." and gives 
         an error when the user gives a ","
 
-      TESTED: 2023.12.27
+      TESTED: 2023.12.27 
+      TESTED: 2023.01.07 
       STATUS: OK 
 */
 
@@ -36,7 +37,7 @@ namespace Exc_03
       Console.WriteLine($"Diagonal is: {diagonal:##.###} cm");
 
       Console.WriteLine();
-      Console.WriteLine("Hit any key to exit ...");
+      Console.WriteLine("Press any key to exit ...");
       ConsoleKeyInfo key = Console.ReadKey();
     }
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Exc_05
 {
@@ -86,7 +85,8 @@ namespace Exc_05
       bool error = false;
       if (gender != 'M' && gender != 'F') {
         error = true;
-      } 
+      } else { error = false; }
+
       int errCount = 0; 
       while (error) {
         errCount++;
@@ -99,30 +99,48 @@ namespace Exc_05
         gender = tmp[0];
         if (gender != 'M' && gender != 'F') {
           error = true;
-        }
+        } else { error = false; }
       }
       return gender;  
     }
-    public static long GetPesel()
+    public static bool ErrorInPesel(string pesel) 
+    {
+      // e.PESEL https://en.wikipedia.org/wiki/PESEL must be 11 digits
+      //
+      // simple error checking 
+      // - only digits
+      // - length = 11
+
+      bool hasError = false;
+      if (pesel.Length != 11) { hasError = true; }
+      // check each char
+
+      foreach(char x in pesel) { 
+        if (!char.IsDigit(x)) { 
+          hasError = true; 
+          break; 
+        }
+      }
+      return hasError;
+    }
+    public static string GetPesel()
     {
       Console.WriteLine("Enter your PESEL:");
-      string tmp = Console.ReadLine();
-      bool error = false;     
-      long pesel = 0;
-      error = !long.TryParse(tmp, out pesel);
+      string pesel = Console.ReadLine();
+      bool error = ErrorInPesel(pesel);
 
       int errCount = 0;
+      string errMsg = "Too many errors on input...";
       while (error) {
         errCount++;
         if (errCount >= 3) {
-          Console.WriteLine("Too many errors on input, skipping this question ...");
-          break;
+          throw new Exception(errMsg);
         }
         Console.WriteLine("Inorrect input, please enter your PESEL:");
-        tmp = Console.ReadLine();
-        error = !long.TryParse(tmp, out pesel);
+        pesel = Console.ReadLine();
+        error = ErrorInPesel(pesel);
       }
-      return pesel; // 0 means not provided
+      return pesel;  
     }
   }
 }
