@@ -1,0 +1,10 @@
+﻿V.1 2023.12.27 
+- preliminary version peterkmxx
+
+V.2 2023.01.07 
+- delivered for evaluation
+
+V.3 2023.01.21 
+- corrected from feedback Tymonello: 
+[done]
+    public string IdNumber { get; set; }  

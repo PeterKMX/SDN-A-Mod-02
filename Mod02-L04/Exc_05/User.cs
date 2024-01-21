@@ -13,7 +13,7 @@ namespace Exc_05
     public string LastName { get; set; }
     public string Email { get; set; }
     public int Age { get; set; }
-    public double Weight { get; set; }  
+    public double Weight { get; set; }
     public char Gender { get; set; }
     //e.PESEL https://en.wikipedia.org/wiki/PESEL must be 11 digits
     public string Pesel { get; set; }

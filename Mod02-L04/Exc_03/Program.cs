@@ -13,6 +13,7 @@
 
       TESTED: 2023.12.27 
       TESTED: 2023.01.07 
+      TESTED: 2023.01.21 
       STATUS: OK 
 */
 
@@ -27,13 +28,13 @@ namespace Exc_03
       Console.WriteLine("Excercise 03: diagonal of a rectangle ");
 
       // in cm
-      double width = ReadWidth();
-      double height = ReadHeight();
+      double widthInCm = ReadWidth();
+      double heightInCm = ReadHeight();
 
-      double diagonal = Math.Sqrt(Math.Pow(width, 2) + Math.Pow(height, 2));
+      double diagonal = Math.Sqrt(Math.Pow(widthInCm, 2) + Math.Pow(heightInCm, 2));
       //TESTED: double diag_check = Math.Sqrt(width*width + height*height);
 
-      Console.WriteLine($"Dimensions are: width={width:##.###} cm, height={height:##.###} cm");
+      Console.WriteLine($"Dimensions are: width={widthInCm:##.###} cm, height={heightInCm:##.###} cm");
       Console.WriteLine($"Diagonal is: {diagonal:##.###} cm");
 
       Console.WriteLine();
@@ -43,21 +44,23 @@ namespace Exc_03
 
     private static double ReadHeight()
     {
-      bool error = false;
-      int errCount = 0;
-      double height = (double)0.0;
+      bool hasError = false;
+      int errorCount = 0;
+      double heightInCm = (double)0.0;
 
       // read into string
       Console.WriteLine("Enter height in cm (use decimal point . if needed)");
       string tmp = Console.ReadLine();
 
       // parse double
-      CultureInfo invC = CultureInfo.InvariantCulture;
-      error = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invC, out height);
+      CultureInfo invariantCulture = CultureInfo.InvariantCulture;
+      hasError = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invariantCulture, out heightInCm);
 
-      while (error) {
-        errCount++;
-        if (errCount >= 3) {
+      while (hasError)
+      {
+        errorCount++;
+        if (errorCount >= 3)
+        {
           Console.WriteLine("Too many errors on input, skipping this question ...");
           break;
         }
@@ -65,40 +68,42 @@ namespace Exc_03
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
         tmp = Console.ReadLine();
         // parse double
-        error = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invC, out height);
+        hasError = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invariantCulture, out heightInCm);
       }
 
-      return height; // 0.0 means not provided 
+      return heightInCm; // 0.0 means not provided 
     }
 
     private static double ReadWidth()
     {
-      bool error = false;
-      int errCount = 0;
-      double width = (double)0.0;
+      bool hasError = false;
+      int errorCount = 0;
+      double widthInCm = (double)0.0;
 
       // read into string
       Console.WriteLine("Enter width in cm (use decimal point . if needed)");
       string tmp = Console.ReadLine();
 
       // parse double
-      CultureInfo invC = CultureInfo.InvariantCulture;
-      error = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invC, out width);
+      CultureInfo invariantCulture = CultureInfo.InvariantCulture;
+      hasError = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invariantCulture, out widthInCm);
 
-      while (error) {
-        errCount++;
-        if (errCount >= 3) {
+      while (hasError)
+      {
+        errorCount++;
+        if (errorCount >= 3)
+        {
           Console.WriteLine("Too many errors on input, skipping this question ...");
           break;
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
         tmp = Console.ReadLine();
-        // parse width
-        error = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invC, out width);
+        // parse double
+        hasError = !double.TryParse(tmp, NumberStyles.AllowDecimalPoint, invariantCulture, out widthInCm);
       }
 
-      return width; // 0.0 means not provided 
+      return widthInCm; // 0.0 means not provided 
     }
   }
 }

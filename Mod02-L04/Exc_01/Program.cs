@@ -10,7 +10,6 @@
 
       TESTED: 2023.12.27 
       TESTED: 2023.01.07 
-      STATUS: OK 
  
 */
 
@@ -19,19 +18,19 @@ namespace Exc_01
 {
   internal class Program
   {
-
     static void Main(string[] args)
     {
       Console.WriteLine("Excercise 01: variables declaration");
       Console.WriteLine("Declaring  ...");
 
-      Person person = new Person() {
+      Person person = new Person()
+      {
         FirstName = "Peter",
         LastName = "Kmxx",
         Age = 41,
         Gender = 'm',
         Pesel = "12345678901",
-        IdNumber = 345354354
+        IdNumber = "000345354354"
       };
       Console.WriteLine("DONE");
 

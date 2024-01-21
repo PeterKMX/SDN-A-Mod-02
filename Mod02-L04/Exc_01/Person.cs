@@ -19,7 +19,7 @@ namespace Exc_01
     //e.PESEL https://en.wikipedia.org/wiki/PESEL must be 11 digits
     public string Pesel { get; set; }
     //f.Numer pracownika (np. 2509324094) 
-    public long IdNumber { get; set; }
+    public string IdNumber { get; set; }
     
     public Person()
     { }

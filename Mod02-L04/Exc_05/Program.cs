@@ -5,11 +5,11 @@
        i spróbuj przekonwertować odpowiedź do odpowiedniego typu danych 
        używając metody: 
         
-        typDanych.Parse(odpowiedźOdUżytkownika).
+       typDanych.Parse(odpowiedźOdUżytkownika).
 
-      TESTED: 2023.12.27 
-      TESTED: 2023.01.07 
-      STATUS: OK 
+       TESTED: 2023.12.27 
+       TESTED: 2023.01.07 
+       STATUS: OK 
 */
 
 namespace Exc_05
@@ -20,9 +20,11 @@ namespace Exc_05
     {
       Console.WriteLine("Excercise 05: Querying user data");
 
-      while (true) { 
-        try {
-          Console.WriteLine("User data entry form:");
+      while (true)
+      {
+        try
+        {
+          Console.WriteLine("User data entry form ------- ");
           User user = new User();
           user.FirstName = UserConsoleInput.GetFirstName();
           user.LastName = UserConsoleInput.GetLastName();
@@ -37,14 +39,22 @@ namespace Exc_05
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;
-
-        } catch (Exception ex) {
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
           Console.WriteLine("An error occured:\r\n" + ex.ToString());
           Console.WriteLine("Stopping application");
           break;
-        } finally { }
-      }  
+        }
+      }
 
       Console.WriteLine();
       Console.WriteLine("Press any key to exit ...");

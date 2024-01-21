@@ -1,0 +1,29 @@
+﻿V.1 2023.12.27 
+- preliminary version peterkmxx
+
+V.2 2023.01.07 
+- delivered for evaluation
+
+V.3 2023.01.21 
+feedback W zadaniu 5:
+      [1]pisanie ifów w ten sposób w jednej linijce, 
+         oraz pomijanie nawiasów po else podlega debacie, 
+         czy to dobrze, czy to źle, ja osobiście jestem zdania, 
+         że lepiej pisać zawsze nawiasy trójkątne przy ifach i else'ach, 
+         oraz pisać to normalnie w osobych linijkach
+
+      [2]i jak nie używasz finally w try-catch, to nie musisz go pisać, 
+         wystarczą bloki try i catch, a ten pusty finally do wywalenia
+
+      [3]jeszcze sugerowałbym funkcji ErrorInPesel zmienić nazwę, 
+         również na bardziej opisującą co ta funkcjia robi, 
+         bo ona nie robi błędu w peselu, tylko sprawdza, czy w peselu jest błąd, 
+         więc lepiej byłoby coś w stylu CheckPeselForErrors CheckPeselCorrectness 
+         IsPeselCorrect
+
+
+- corrected from feedback Tymonello: 
+[done]
+[1] [2] [3]
+
+

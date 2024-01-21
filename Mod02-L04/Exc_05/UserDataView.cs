@@ -16,7 +16,7 @@ namespace Exc_05
       Console.WriteLine($"Last name: {user.LastName}");
       Console.WriteLine($"Email: {user.Email}");
       Console.WriteLine($"Age: {user.Age}");
-      Console.WriteLine($"Age: {user.Weight:###.###}");
+      Console.WriteLine($"Weight: {user.Weight:###.###}");
       Console.WriteLine($"Gender: {user.Gender}");
       Console.WriteLine($"PESEL: {user.Pesel}");
     }
