@@ -30,7 +30,8 @@ namespace Exc_13
 
       while (true) 
       {
-        try { 
+        try 
+        { 
           int arg1 = UserDataInput.Get1stNumber();
           int arg2 = UserDataInput.Get2ndNumber();
           int oper = UserDataInput.GetOperation();
@@ -40,13 +41,22 @@ namespace Exc_13
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;
-
-        } catch (Exception ex) { 
-          Console.WriteLine("An error occured:\r\n" + ex.ToString());
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
+          string msg = "App error: " + ex.Message;
+          Console.WriteLine(msg);
           Console.WriteLine("Stopping application");
           break;
-        } finally { }
+        }
       }
 
       Console.WriteLine();

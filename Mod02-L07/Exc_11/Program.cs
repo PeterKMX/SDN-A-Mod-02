@@ -12,6 +12,8 @@ Opis
 
 -----------------------
 TESTED: 01.01.2024
+TESTED: 21.01.2024
+adapted: ScoreMapper uses a switch
 STATUS: OK 
 
  */
@@ -24,13 +26,14 @@ namespace Exc_11
     {
       Console.WriteLine("Excercise 11: Powiedz ocene ucznia ...");
 
-      VerbalMapper mapper = new VerbalMapper();
+      ScoreMapper mapper = new ScoreMapper();
       int scoreInt;
       string scoreTxt;
-      
+
       while (true)
       {
-        try {
+        try
+        {
           scoreInt = UserDataInput.GetPersonScore();
           scoreTxt = mapper.GetTextByIndex(scoreInt);
 
@@ -38,16 +41,23 @@ namespace Exc_11
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;
-        
-        } catch (Exception ex) {
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
           string msg = "App error: " + ex.Message;
           Console.WriteLine(msg);
           Console.WriteLine("Stopping application");
           break;
         }
       }
-
       Console.WriteLine();
       Console.WriteLine("Press any key to exit ...");
       string s = Console.ReadLine();

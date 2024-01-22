@@ -28,9 +28,12 @@ namespace Exc_01
       Console.WriteLine("Excercise 01: variables equality");
       int a = 5;
       int b = 5;
-      if (a == b) {
+      if (a == b) 
+      {
         Console.WriteLine($"Variables a={a},b={b} are equal."); 
-      } else {
+      } 
+      else 
+      {
         Console.WriteLine($"Variables a={a},b={b} are not equal.");
       }
 

@@ -41,28 +41,41 @@ namespace Exc_04
     static void Main(string[] args)
     {
       Console.WriteLine("Excercise 04: Rok przestepny / Leap Year / Schrikkeljaar");
-      
-      while (true) 
+
+      while (true)
       {
-        try {
+        try
+        {
           // read year
           int year = UserDataInput.GetYearToTest();
-          if (year == 0) break; 
-        
+          if (year == 0) break;
+
           // test leap year
-          bool isLeapYear = LeapYearEvaluator.IsLeapYear(year);
+          bool isLeapYear = LeapYearEvaluator.ConfirmLeapYear(year);
 
           // view
-          if (isLeapYear ) {
+          if (isLeapYear)
+          {
             Console.WriteLine($"{year} jest rokiem przestepnym");
-          } else {
+          }
+          else
+          {
             Console.WriteLine($"{year} nie jest rokiem przestepnym");
           }
-      
+
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;   
-        } catch (Exception ex) {
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
           string msg = "App error: " + ex.Message;
           Console.WriteLine(msg);
           Console.WriteLine("Stopping application");

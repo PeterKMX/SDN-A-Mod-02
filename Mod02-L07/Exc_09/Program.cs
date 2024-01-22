@@ -22,21 +22,30 @@ namespace Exc_09
     {
       Console.WriteLine("Excercise 09: Kategorie temperatury");
       VerbalMapper verbalMapper = new VerbalMapper();
-      while (true) 
+      while (true)
       {
-        try {
+        try
+        {
           // get input in cm and assign to category range
-          int tCelsius = UserDataInput.GetTemperatureInCelsius();
-          TemperatureCategory tc = RangeMapper.AssignToRange(tCelsius);
+          int temperatureInCelsius = UserDataInput.GetTemperatureInCelsius();
+          TemperatureCategory tc = RangeMapper.AssignToRange(temperatureInCelsius);
 
           // display category
           OutputView.DisplayResult(tc, verbalMapper);
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;
-
-        } catch (Exception ex) {
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
           string msg = "App error: " + ex.Message;
           Console.WriteLine(msg);
           Console.WriteLine("Stopping application");

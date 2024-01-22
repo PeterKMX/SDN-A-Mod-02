@@ -11,14 +11,7 @@ namespace Exc_09
   {
 
     /*
-Invalid input ....         < 40 // handle in user input
-You are a dwarf             40 - 140
-You are a short person     141 - 160
-You are a normal person    161 - 180
-You are a tall person      181 - 200
-You are a very tall person 201 - 220 
-You are a giant            221 - 300
-Invalid input ....         > 281 // handle in user input    
+
      
     */
     public static int GetTemperatureInCelsius() 
@@ -29,8 +22,8 @@ Invalid input ....         > 281 // handle in user input
 
     private static int GetNumber(String commandText)
     {
-      bool error = false;
-      int errCount = 0;
+      bool hasError = false;
+      int errorCount = 0;
       int number = 0;
 
       // read into string
@@ -39,20 +32,20 @@ Invalid input ....         > 281 // handle in user input
       string tmp = Console.ReadLine();
 
       // parse
-      error = !int.TryParse(tmp, out number);
+      hasError = !int.TryParse(tmp, out number);
 
-      string errMsg = "Too many errors on input...";
-      while (error) {
-        errCount++;
-        if (errCount >= 3) {
-          throw new Exception(errMsg);
+      string errorMessage = "Too many errors on input...";
+      while (hasError) {
+        errorCount++;
+        if (errorCount >= 3) {
+          throw new Exception(errorMessage);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
         tmp = Console.ReadLine();
 
         // parse
-        error = !int.TryParse(tmp, out number);
+        hasError = !int.TryParse(tmp, out number);
       }
 
       return number; // 0.0 means not provided 

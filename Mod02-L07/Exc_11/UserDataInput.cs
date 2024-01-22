@@ -17,8 +17,8 @@ namespace Exc_11
 
     private static int GetNumber(String commandText)
     {
-      bool error = false;
-      int errCount = 0;
+      bool hasError = false;
+      int errorCount = 0;
       int number = 0;
 
       // read into string
@@ -27,35 +27,33 @@ namespace Exc_11
       string tmp = Console.ReadLine();
 
       // parse
-      error = !int.TryParse(tmp, out number);
-      if (!error) {
+      hasError = !int.TryParse(tmp, out number);
+      if (!hasError) {
         if (number < 1 || number > 6) {
-          error = true;
+          hasError = true;
         }
       }
 
-      string errMsg = "Too many errors on input...";
-      while (error) {
-        errCount++;
-        if (errCount >= 3) {
-          throw new Exception(errMsg);
+      string errorMessage = "Too many errors on input...";
+      while (hasError) {
+        errorCount++;
+        if (errorCount >= 3) {
+          throw new Exception(errorMessage);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
         tmp = Console.ReadLine();
 
         // parse
-        error = !int.TryParse(tmp, out number);
-        if (!error) {
+        hasError = !int.TryParse(tmp, out number);
+        if (!hasError) {
           if (number < 1 || number > 6) {
-            error = true;
+            hasError = true;
           }
         }
       }
 
-
-
-      return number; // 0.0 means not provided 
+      return number; 
     }
 
   }

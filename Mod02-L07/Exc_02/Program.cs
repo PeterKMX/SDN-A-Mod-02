@@ -9,8 +9,12 @@ Analysis
 - user input needed
 
 -----------------------
-TESTED: 01.01.2024
-STATUS: OK 
+TESTED: 01.01.2024 STATUS: OK
+TESTED: 20.01.2024 
+        0   is even 
+        -3  is odd 
+        -2  is even
+STATUS: OK
 */
 
 
@@ -22,25 +26,39 @@ namespace Exc_02
     {
       Console.WriteLine("Excercise 02: even or odd number");
 
-      while (true) {
-        try {
+      while (true)
+      {
+        try
+        {
           int number = UserDataInput.GetNumberToTest();
 
-          if (number % 2 == 0) {
+          if (number % 2 == 0)
+          {
             Console.WriteLine($"Number {number} is even");
-          } else {
+          }
+          else
+          {
             Console.WriteLine($"Number {number} is odd");
           }
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;
-        } catch (Exception ex) {
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
           string msg = "App error: " + ex.Message;
           Console.WriteLine(msg);
           Console.WriteLine("Stopping application");
           break;
-        } finally { }
+        }
       }
 
       Console.WriteLine();

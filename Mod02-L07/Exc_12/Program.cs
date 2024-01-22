@@ -34,11 +34,19 @@ namespace Exc_12
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
-          if (x == "y") { continue; } else break;
-
-        } catch (Exception ex) {
+          if (x == "y")
+          {
+            continue;
+          }
+          else
+          {
+            break;
+          }
+        }
+        catch (Exception ex)
+        {
           string msg = "App error: " + ex.Message;
-          Console.WriteLine(msg); 
+          Console.WriteLine(msg);
           Console.WriteLine("Stopping application");
           break;
         }

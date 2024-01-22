@@ -34,14 +34,13 @@ Temp >= 40 – a weź wyprowadzam się na Alaskę.
     {
       TemperatureCategory tc = TemperatureCategory.Nice;
 
-      if (t < 0)                   { tc = TemperatureCategory.ExtremelyCold; } 
-      else if (t > 0  && t <= 9 )  { tc = TemperatureCategory.Cold; } 
-      else if (t > 10 && t <= 20)  { tc = TemperatureCategory.ABitCool; } 
-      else if (t > 20 && t <= 30)  { tc = TemperatureCategory.Nice; } 
-      else if (t > 30 && t <= 40)  { tc = TemperatureCategory.Hot; } 
-      else if (t > 40)             { tc = TemperatureCategory.SweatingHot; }
-      else                         { tc = TemperatureCategory.SweatingHot; }
-
+      if (t < 0)                    { tc = TemperatureCategory.ExtremelyCold; } 
+      else if (t >= 0  && t <= 10 ) { tc = TemperatureCategory.Cold; } 
+      else if (t > 10 && t <= 20)   { tc = TemperatureCategory.ABitCool; } 
+      else if (t > 20 && t <= 30)   { tc = TemperatureCategory.Nice; } 
+      else if (t > 30 && t <= 40)   { tc = TemperatureCategory.Hot; } 
+      else if (t > 40)              { tc = TemperatureCategory.SweatingHot; }
+      else                          { tc = TemperatureCategory.SweatingHot; }
 
       return tc; 
     }

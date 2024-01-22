@@ -13,7 +13,7 @@ namespace Exc_04
     /*
 
     */
-    public static int GetYearToTest() 
+    public static int GetYearToTest()
     {
       string commandText = "Podaj prosze rok do sprawdzenia (albo 0 zeby zakonczyc test):";
       return GetNumber(commandText);
@@ -21,8 +21,8 @@ namespace Exc_04
 
     private static int GetNumber(String commandText)
     {
-      bool error = false;
-      int errCount = 0;
+      bool hasError = false;
+      int errorCount = 0;
       int number = 0;
 
       // read into string
@@ -31,23 +31,24 @@ namespace Exc_04
       string tmp = Console.ReadLine();
 
       // parse
-      error = !int.TryParse(tmp, out number);
-
-      string errMsg = "Too many errors on input...";
-      while (error) {
-        errCount++;
-        if (errCount >= 3) {
-          throw new Exception(errMsg);
+      hasError = !int.TryParse(tmp, out number);
+      string errorMessage = "Too many errors on input...";
+      while (hasError)
+      {
+        errorCount++;
+        if (errorCount >= 3)
+        {
+          throw new Exception(errorMessage);
         }
 
         Console.WriteLine($"Incorrect input ({tmp}) Please correct your input:");
         tmp = Console.ReadLine();
 
         // parse
-        error = !int.TryParse(tmp, out number);
+        hasError = !int.TryParse(tmp, out number);
       }
 
-      return number; // 0.0 means not provided 
+      return number; 
     }
 
   }
