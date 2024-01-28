@@ -22,14 +22,15 @@ namespace Exc_07
       {
         try
         {
-          int n1 = UserDataInput.Get1stNumber();
-          int n2 = UserDataInput.Get2ndNumber();
-          int n3 = UserDataInput.Get3rdNumber();
+          int number1 = UserDataInput.Get1stNumber();
+          int number2 = UserDataInput.Get2ndNumber();
+          int number3 = UserDataInput.Get3rdNumber();
 
-          List<int> list = new List<int> { n1, n2, n3 };
-          list.Sort();
+          List<int> numberList = new List<int> { number1, number2, number3 };
+          numberList.Sort(); // sorts ascending
 
-          Console.WriteLine(string.Format($"{list[2]} jest największa z podanych"));
+          int highestNumber = numberList[2];
+          Console.WriteLine(string.Format($"{highestNumber} jest największa z podanych"));
 
           Console.WriteLine("Try again ? (y/n)");
           string x = Console.ReadLine();
