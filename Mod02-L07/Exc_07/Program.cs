@@ -29,7 +29,7 @@ namespace Exc_07
           List<int> numberList = new List<int> { number1, number2, number3 };
           numberList.Sort(); // sorts ascending
 
-          int highestNumber = numberList[2];
+          int highestNumber = numberList[numberList.Count - 1];
           Console.WriteLine(string.Format($"{highestNumber} jest największa z podanych"));
 
           Console.WriteLine("Try again ? (y/n)");

@@ -1,0 +1,19 @@
+The C# Programming Language
+Anders Hejlsberg
+Wiley 
+2017
+
+Beginning gRPC with ASP.NET Core 6
+Anthony Giretti
+Appres 
+2022
+
+Learn PHP 8
+Steve Prettyman
+Appres
+2020
+
+Visual Studio Code Distilled
+Alessandro Del Sole
+Apress
+2021
