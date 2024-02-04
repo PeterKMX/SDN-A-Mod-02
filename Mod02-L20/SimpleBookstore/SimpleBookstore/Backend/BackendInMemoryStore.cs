@@ -17,15 +17,20 @@ namespace SimpleBookstore.Backend
     {
         _backendData = new BackendData();
     }
-    //-------------------------------------------------
-    internal static List<BookItem> GetBooksList()
+    //---------------------------------------------------
+    public static bool IsEmpty()
     {
-      return _backendData.books;
+      return (_backendData?.books.Count == 0);
     }
     //---------------------------------------------
     public static int GetBooksCount()
     {
       return _backendData.books.Count;
+    }
+    //-------------------------------------------------
+    internal static List<BookItem> GetBooksList()
+    {
+      return _backendData.books;
     }
     //-------------------------------------
     internal static void AddBook(BookItem book)

@@ -40,7 +40,7 @@ namespace SimpleBookstore
     public string GetMenuAsText()
     {
       StringBuilder sbMenuItems = new StringBuilder();
-      sbMenuItems.AppendLine("Book Menu:");
+      sbMenuItems.AppendLine("Main Menu:");
       foreach (MainMenuItem item in _menuItemsList)
       {
         sbMenuItems.AppendLine($"{item.GetString()}");
@@ -48,7 +48,7 @@ namespace SimpleBookstore
       return sbMenuItems.ToString(); 
     }
     //-------------------------------------------
-    internal List<int> GetExistingMenuIdList()
+    public List<int> GetExistingMenuIdList()
     {
       List<int> ints = new List<int>();
       foreach (MainMenuItem item in _menuItemsList) 

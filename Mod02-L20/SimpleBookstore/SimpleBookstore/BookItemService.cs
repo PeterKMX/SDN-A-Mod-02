@@ -39,6 +39,11 @@ namespace SimpleBookstore
     //---------------------------------------------------------------------
     public void EditBook() 
     {
+      if (BackendInMemoryStore.IsEmpty())
+      {
+        Console.WriteLine("[Backend list is empty]");
+        return;
+      }
       // must know valid book ids 
       List<int> validBookIdsList = BackendInMemoryStore.GetValidBookIds();
 
@@ -49,7 +54,6 @@ namespace SimpleBookstore
       BookItem currentBook = BackendInMemoryStore.GetBookById(bookToEditId);
       
       // edit book in view 
-      //BookItem editedBook = ViewActionsBookCreateEdit.EditBook(currentBook);
       BookItem editedBook = _viewActionsBookItem.EditBook(currentBook);
 
       //  replace in backend (use book Id)
@@ -60,6 +64,11 @@ namespace SimpleBookstore
     //------------------------------------------------------------------------------
     public void RemoveBook()
     {
+      if (BackendInMemoryStore.IsEmpty())
+      {
+        Console.WriteLine("[Backend list is empty]");
+        return;
+      }
       // ask backend for valid book ids 
       List<int> validBookIdsList = BackendInMemoryStore.GetValidBookIds();
 
@@ -101,9 +110,15 @@ namespace SimpleBookstore
 
       Console.WriteLine("[DONE]");
     }
-
-    internal void ReadBookDetails()
+    //-------------------------------------------------------
+    public void ReadBookDetails()
     {
+      if ( BackendInMemoryStore.IsEmpty()) 
+      {
+        Console.WriteLine("[Backend list is empty]");
+        return;
+      }
+
       // ask backend for valid book ids 
       List<int> validBookIdsList = BackendInMemoryStore.GetValidBookIds();
 

@@ -55,7 +55,7 @@ namespace SimpleBookstore.View
     public int RequestBookID(List<int> idReferenceList)
     {
       // request a valid book id via console 
-      // reference list is used to check user reply
+      // the list idReferenceList is used to check user reply
       string commandText = "Enter Book Id:";
       Console.WriteLine(commandText);
       return ReplyWithBookID(commandText, idReferenceList);
